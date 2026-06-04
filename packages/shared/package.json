@@ -1,0 +1,20 @@
+{
+  "name": "@boringos-vcbrain/shared",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "license": "GPL-3.0-or-later",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "dev": "tsc --watch"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}

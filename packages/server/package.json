@@ -1,0 +1,34 @@
+{
+  "name": "@boringos-vcbrain/server",
+  "version": "0.8.1",
+  "private": true,
+  "type": "module",
+  "license": "GPL-3.0-or-later",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc && pnpm postbuild",
+    "postbuild": "node -e \"const{cpSync,existsSync}=require('node:fs');existsSync('src/skills')&&cpSync('src/skills','dist/skills',{recursive:true})\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@boringos/agent": "^0.3.1",
+    "@boringos/module-sdk": "^0.13.0",
+    "@boringos/connector-google": "^0.2.12",
+    "@boringos/core": "^0.4.0",
+    "@boringos/db": "^0.2.0",
+    "@boringos/shared": "^0.1.8",
+    "@boringos-vcbrain/shared": "workspace:*",
+    "drizzle-orm": "^0.45.2",
+    "hono": "^4.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "postgres": "^3.4.5",
+    "tsx": "^4.0.0",
+    "typescript": "^5.7.3"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "vcbrain",
+  "version": "0.8.1",
+  "entry": "./index.mjs",
+  "ui": {
+    "entry": "./ui/index.mjs",
+    "sourcePath": "../web/dist"
+  },
+  "publisher": {
+    "id": "hebbs",
+    "name": "Hebbs"
+  },
+  "license": "GPL-3.0-or-later",
+  "minFrameworkVersion": "0.1.0"
+}

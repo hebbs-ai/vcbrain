@@ -1,0 +1,12 @@
+/* Theme contract — follow the shell's Light/Dark choice via --bos-* vars. */
+@import "@boringos/ui/theme.css";
+@import "tailwindcss";
+
+@theme {
+  --color-bg: var(--bos-bg);
+  --color-surface: var(--bos-surface, var(--bos-bg));
+  --color-text: var(--bos-text);
+  --color-muted: var(--bos-muted);
+  --color-border: var(--bos-border);
+  --color-accent: var(--bos-accent);
+}
