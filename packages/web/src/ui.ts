@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // The PluginUI bundle the shell loads at runtime from
 // /modules/vcbrain/ui/index.mjs. Contributes the sidebar pages (Pipeline,

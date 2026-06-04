@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // Shared dependencies threaded into every VCBrain tool factory. Built
 // once in module.ts from the `ModuleFactoryDeps` the framework injects,

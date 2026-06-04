@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // Portfolio monitoring tools. vc-portfolio-monitor records signals
 // (news, hiring, runway, KPI moves) on invested companies; the UI surfaces

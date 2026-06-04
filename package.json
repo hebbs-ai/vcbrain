@@ -2,7 +2,7 @@
   "name": "boringos-vcbrain-module",
   "private": true,
   "type": "module",
-  "license": "GPL-3.0-or-later",
+  "license": "MIT",
   "scripts": {
     "build": "pnpm -r build",
     "typecheck": "pnpm -r typecheck",

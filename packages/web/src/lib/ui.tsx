@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // Small theme-aware UI atoms. Colors reference the shell's --bos-* contract
 // so the module follows the user's Light/Dark choice with no rebuild.

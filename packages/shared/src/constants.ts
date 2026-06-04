@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // VCBrain shared constants — pipeline stages, source channels, thesis
 // defaults. Imported by both the server (seed + tools) and the web UI.

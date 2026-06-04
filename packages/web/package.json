@@ -1,9 +1,9 @@
 {
   "name": "@boringos-vcbrain/web",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "private": true,
   "type": "module",
-  "license": "GPL-3.0-or-later",
+  "license": "MIT",
   "main": "./src/ui.ts",
   "types": "./src/ui.ts",
   "exports": {

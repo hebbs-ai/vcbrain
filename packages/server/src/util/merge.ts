@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // Deep-merge for the living dossier: re-running vc-research merges new
 // findings into the existing brief rather than replacing it. Plain objects

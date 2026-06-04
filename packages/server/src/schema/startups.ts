@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 import { pgTable, uuid, text, integer, jsonb, timestamp, index } from "drizzle-orm/pg-core";
 import type { StartupDossier, ThesisConfig } from "@boringos-vcbrain/shared";
 

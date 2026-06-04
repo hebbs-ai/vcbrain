@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 import { describe, it, expect } from "vitest";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
@@ -16,7 +16,7 @@ describe("vcbrain module.json", () => {
   it("static manifest carries only pack-time fields", async () => {
     const json = JSON.parse(await readFile(moduleJsonPath, "utf8")) as Record<string, unknown>;
     expect(json.id).toBe("vcbrain");
-    expect(json.version).toBe("0.8.1");
+    expect(json.version).toBe("0.8.2");
     expect(json.entry).toBeDefined();
     expect(json.ui).toBeDefined();
     expect(json.publisher).toBeDefined();
@@ -33,7 +33,7 @@ describe("vcbrain factory", () => {
   it("exposes the canonical manifest fields", () => {
     const mod = build();
     expect(mod.id).toBe("vcbrain");
-    expect(mod.version).toBe("0.8.1");
+    expect(mod.version).toBe("0.8.2");
     expect(mod.name).toBe("VCBrain");
     expect(mod.kind).toBe("module");
     expect(mod.provides).toEqual(["vcbrain-source", "vcbrain-actions"]);

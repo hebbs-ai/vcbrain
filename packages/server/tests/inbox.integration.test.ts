@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // Phase 2 — email intake + attachments→drive. DB-backed; needs VCBRAIN_TEST_DB.
 

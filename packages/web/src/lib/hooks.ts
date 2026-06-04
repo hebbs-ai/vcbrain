@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // Typed wrappers over the framework's useTool/useToolMutation for the vcbrain
 // tool surface. The shell provides session auth; /api/tools/vcbrain.* resolves

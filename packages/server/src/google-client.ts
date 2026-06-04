@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // Resolves a Gmail client for the tenant's "google" connector binding and
 // pulls email attachments. The framework's connector-google ≥0.2.13 ships

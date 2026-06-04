@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // Shared harness for DB-backed integration tests. Connects to a Postgres
 // pointed at by VCBRAIN_TEST_DB (the dev host's embedded PG works:

@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // Demo seed — wipes the tenant's VCBrain data and loads 4 real, recent
 // YC-era AI companies as fully worked examples that exercise every agent and

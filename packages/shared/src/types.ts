@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // VCBrain shared DTOs. The server returns these shapes from tools/routes;
 // the web UI consumes them. Kept deliberately structural (no Drizzle types)

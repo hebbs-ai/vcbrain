@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // Home dashboard widgets. The shell renders the widget element raw (no title
 // chrome), so each widget draws its own card header + description + empty state.

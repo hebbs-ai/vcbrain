@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 export { startups } from "./startups.js";
 export { theses } from "./theses.js";
 export { memos } from "./memos.js";

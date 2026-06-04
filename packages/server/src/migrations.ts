@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // Migration[] for the install pipeline. Each migration's `up()` runs
 // CREATE TABLE + indexes; `down()` drops them. Idempotent at the

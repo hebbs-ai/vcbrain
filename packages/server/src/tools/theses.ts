@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // Thesis tools (proposal View 3 — the differentiator). The fund configures
 // its thesis once; the fit agent scores every lead against the ACTIVE one.

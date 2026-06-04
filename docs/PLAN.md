@@ -117,7 +117,7 @@ parsed_at. (Tracks attachments stored in drive + parse state.)
 ## Phases
 
 - **Phase 0 — Scaffold + framework PR.** Monorepo (`packages/{server,web,shared}`),
-`module.json`, tsconfig from CRM, GPL SPDX headers; empty module installs into a host
+`module.json`, tsconfig from CRM, MIT SPDX headers; empty module installs into a host
 (build + install test green). **Parallel:** upstream `connector-google` `getAttachment`/`listAttachments` PR (GAP A).
 - **Phase 1 — Schema + core CRUD tools.** `vc__*` migration; `startups.*` + `theses.*`
 tools; copilot can `upsert`. Dispatcher tests.
@@ -147,6 +147,6 @@ registered via `app.module(...)`; casts `deps.db` to `PostgresJsDatabase`.
 - **Schema prefix** `vc__`*; Drizzle migrations applied per-tenant on install.
 - **Tools** Zod-typed, `{ ok, result }` / `{ ok:false, error }`, dispatched at `/api/tools/vcbrain.<name>`.
 - **Skills** literal `SKILL.md` under `src/skills/`, copied to `dist/skills` in `postbuild`, referenced by path from the factory.
-- **License** GPL-3.0-or-later (matches framework + CRM); SPDX header per file.
+- **License** MIT (open source — fork/self-host/commercial); SPDX header per file.
 - **Deps** `@boringos/{agent,module-sdk,core,db,shared}` + `connector-google` + `drizzle-orm` + `hono`.
 

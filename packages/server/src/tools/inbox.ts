@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // Email-intake tools (proposal View 1, email channel). `inbox.ingest`
 // turns an inbound email (a framework inbox item, or explicit fields)

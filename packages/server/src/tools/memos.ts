@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // IC memo tools. vc-memo-writer drafts a cited memo when a startup
 // reaches the IC stage; the partner edits and publishes.

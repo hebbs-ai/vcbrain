@@ -1,6 +1,6 @@
 {
   "id": "vcbrain",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "entry": "./index.mjs",
   "ui": {
     "entry": "./ui/index.mjs",
@@ -10,6 +10,6 @@
     "id": "hebbs",
     "name": "Hebbs"
   },
-  "license": "GPL-3.0-or-later",
+  "license": "MIT",
   "minFrameworkVersion": "0.1.0"
 }

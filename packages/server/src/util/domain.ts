@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // Domain helpers for startup dedup. A founder's free-mail address tells
 // us nothing about the company, so we derive the company domain from the

@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // Thesis Studio (proposal View 3) — define the fund's north star: hard
 // must-haves / deal-breakers, weighted dimensions, and a back-test preview.

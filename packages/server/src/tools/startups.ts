@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // Startup tools — the central entity. Dispatched at
 // /api/tools/vcbrain.startups.<verb>. `upsert` is the single intake

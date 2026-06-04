@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // Aggregates every VCBrain tool factory into the array passed to
 // `Module.tools`. Dispatch URL pattern: /api/tools/vcbrain.<group>.<verb>

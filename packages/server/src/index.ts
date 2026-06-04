@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // @boringos-vcbrain/server — public surface for the VCBrain module.
 //

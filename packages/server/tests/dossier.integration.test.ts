@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // Phase 3 — living dossier + file parse tracking. DB-backed; needs VCBRAIN_TEST_DB.
 

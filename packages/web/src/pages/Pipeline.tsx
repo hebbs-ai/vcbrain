@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // Pipeline — kanban by stage with the fit score on every card (proposal View 2).
 

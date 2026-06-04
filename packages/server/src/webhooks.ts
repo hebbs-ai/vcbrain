@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // Public-form intake (proposal View 1, form channel). A fund embeds a widget
 // that POSTs to /api/webhooks/vcbrain/inbound?t=<token>. The token is a signed,

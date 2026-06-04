@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // DB-backed integration tests for the Phase 1 tools. Run against the dev
 // host's embedded Postgres:

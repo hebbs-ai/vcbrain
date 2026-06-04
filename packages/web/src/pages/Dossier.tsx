@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // Dossier — the analyst-grade investment brief for one startup. Renders the full
 // StartupDossier: header + snapshot + metrics, founder deep-dive, product, market,

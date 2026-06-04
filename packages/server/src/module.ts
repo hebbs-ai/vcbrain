@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // `vcbrain` Module — entry point. Exports `createVcbrainModule`, a
 // ModuleFactory the host registers via `app.module(createVcbrainModule)`.
@@ -38,9 +38,9 @@ export const createVcbrainModule: ModuleFactory = (factoryDeps) => {
   const module: Module = {
     id: "vcbrain",
     name: "VCBrain",
-    version: "0.8.1",
+    version: "0.8.2",
     description:
-      "Venture-capital operating layer — multi-channel startup intake, living dossiers, thesis-aware scoring, IC memo drafting, and portfolio monitoring. Ships specialised agents for research, thesis fit, memo writing, scouting, and portfolio watch.",
+      "The open-source AI analyst for VCs. Catches startup leads from every channel, researches each into an analyst-grade dossier, scores it against your fund's thesis, drafts the IC memo, and watches your portfolio — self-hosted and agent-native. Ships 5 specialised agents (research, thesis-fit, memo, scout, portfolio). Tailor it to your fund at hebbs.ai.",
     kind: "module",
     defaultInstall: false,
     provides: ["vcbrain-source", "vcbrain-actions"],

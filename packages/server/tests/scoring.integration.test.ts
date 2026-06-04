@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 //
 // Phase 4 — thesis-fit scoring. DB-backed; needs VCBRAIN_TEST_DB.
 
