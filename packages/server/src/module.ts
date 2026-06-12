@@ -38,7 +38,7 @@ export const createVcbrainModule: ModuleFactory = (factoryDeps) => {
   const module: Module = {
     id: "vcbrain",
     name: "VCBrain",
-    version: "0.8.2",
+    version: "0.9.0",
     description:
       "The open-source AI analyst for VCs. Catches startup leads from every channel, researches each into an analyst-grade dossier, scores it against your fund's thesis, drafts the IC memo, and watches your portfolio — self-hosted and agent-native. Ships 5 specialised agents (research, thesis-fit, memo, scout, portfolio). Tailor it to your fund at hebbs.ai.",
     kind: "module",

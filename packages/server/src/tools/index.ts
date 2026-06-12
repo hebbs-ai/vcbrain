@@ -9,6 +9,8 @@ import { createThesisTools } from "./theses.js";
 import { createMemoTools } from "./memos.js";
 import { createPortfolioTools } from "./portfolio.js";
 import { createInboxTools } from "./inbox.js";
+import { createIngestionTools } from "./ingestion.js";
+import { createAgentTools } from "./agents.js";
 import type { VcDeps } from "./deps.js";
 
 export function createVcbrainTools(deps: VcDeps): Tool[] {
@@ -18,5 +20,7 @@ export function createVcbrainTools(deps: VcDeps): Tool[] {
     ...createMemoTools(deps),
     ...createPortfolioTools(deps),
     ...createInboxTools(deps),
+    ...createIngestionTools(deps),
+    ...createAgentTools(deps),
   ];
 }

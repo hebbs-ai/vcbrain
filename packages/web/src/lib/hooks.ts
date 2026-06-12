@@ -79,3 +79,30 @@ export function useFiles(startupId: string | undefined) {
 export function useSignals(startupId: string | undefined) {
   return useTool("vcbrain.portfolio.list_signals", { startupId }, { enabled: !!startupId }) as Q<{ data: PortfolioSignal[] }>;
 }
+
+export type IngestionStatus = {
+  thesis: { name: string; config: ThesisConfig } | null;
+  channels: { channel: string; count: number; lastAt: string | null }[];
+  documents: { files: number; parsed: number; lastAt: string | null };
+  recent: { name: string; channel: string; at: string }[];
+};
+export function useIngestionStatus() {
+  return useTool("vcbrain.ingestion.status", {}, { refetchInterval: 10000 }) as Q<IngestionStatus>;
+}
+
+export type AgentRow = {
+  id: string;
+  name: string;
+  role: string;
+  label: string;
+  model: string | null;
+  status: string;
+  lastActiveAt: string | null;
+  runs: number;
+};
+export type RoutineRow = { title: string; cron: string; status: string; lastAt: string | null; agentRole: string };
+export type ActivityRow = { role: string; action: string; subject: string; subjectId: string; at: string };
+export type AgentActivity = { agents: AgentRow[]; routines: RoutineRow[]; activity: ActivityRow[]; total: number };
+export function useAgentActivity() {
+  return useTool("vcbrain.agents.activity", {}, { refetchInterval: 8000 }) as Q<AgentActivity>;
+}

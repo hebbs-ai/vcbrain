@@ -25,6 +25,12 @@ const THESIS = {
 
 const SRC_NOTE = { id: "SRC-EST", title: "Analyst estimates (demo)", tier: "inferred", contribution: "Private financials are illustrative analyst estimates" };
 
+// Backdate agent-produced artifacts into "last night" (2am base) so the Agents
+// run-log reads like overnight work, matching the "while I sleep" narrative.
+const NIGHT = new Date();
+NIGHT.setHours(2, 0, 0, 0);
+const ago = (mins) => new Date(NIGHT.getTime() + mins * 60000);
+
 // ── The four companies ─────────────────────────────────────────────────
 
 const firecrawl = {
@@ -83,7 +89,7 @@ const firecrawl = {
     traction: {
       summary: "Standout open-source traction converting to usage revenue.",
       revenue: { arr: "$2.1M (est.)", mrr: "$175k (est.)" }, growth: { mom: "30% (est.)" },
-      customers: { count: "thousands of free, hundreds paid (est.)", notable: ["Several well-known AI startups (self-serve)"], concentration: "Low — self-serve led (verify)" },
+      customers: { count: "thousands of free, hundreds paid (est.)", notable: ["Several well-known AI startups (self-serve)"], concentration: "Top 2 customers ≈ 40% of ARR despite the self-serve headline — agent-flagged, not in the deck (verify contract terms)" },
       retention: { nrr: "140% (est.)" }, engagement: { nps: "—" },
       unitEconomics: { cac: "$0–low (PLG)", ltv: "high (usage)", ltvCacRatio: "strong (PLG)", grossMargin: "68% (est.)", burnMultiple: "~1.2x (est.)" },
       burn: { monthly: "$160k (est.)", runwayMonths: "16 (est.)" },
@@ -112,7 +118,7 @@ const firecrawl = {
       suggestedLeadPartner: "Alex (infra)", ownershipTarget: "10-12%", scoredAt: new Date().toISOString(),
     },
     diligence: {
-      redFlags: [{ severity: "medium", item: "Scraping legality", detail: "ToS/anti-bot exposure; needs counsel review" }, { severity: "low", item: "Infra margin", detail: "68% est. — confirm trajectory" }],
+      redFlags: [{ severity: "high", item: "Customer concentration", detail: "Top two customers ≈ 40% of revenue — not surfaced in the founder deck; diligence contract terms, churn exposure and renewal risk before IC" }, { severity: "medium", item: "Scraping legality", detail: "ToS/anti-bot exposure; needs counsel review" }, { severity: "low", item: "Infra margin", detail: "68% est. — confirm trajectory" }],
       keyRisks: [{ category: "legal", risk: "Scraping/ToS litigation", mitigation: "Compliance posture + customer indemnity terms" }, { category: "market", risk: "Commoditization", mitigation: "Move up-stack to extraction + enterprise" }],
       openQuestions: ["Self-serve vs large-contract revenue mix?", "Gross-margin path at scale?", "Enterprise pipeline?"],
       checklist: [{ area: "Revenue mix + recognition", status: "todo" }, { area: "Legal review of scraping posture", status: "todo" }, { area: "Infra cost model", status: "todo" }],
@@ -135,7 +141,7 @@ const firecrawl = {
       SRC_NOTE,
     ],
   },
-  memo: { status: "draft", md: icMemo("Firecrawl", "the open-source web-data layer for AI", "$2.1M ARR (est.) growing ~30% MoM with 30k+ GitHub stars", "Scraping legality and infra margin", "Lead the $6M seed at ~$45M; strong distribution moat and repeat team.") },
+  memo: { status: "draft", md: icMemo("Firecrawl", "the open-source web-data layer for AI", "$2.1M ARR (est.) growing ~30% MoM with 30k+ GitHub stars", "Scraping legality and infra margin", "Lead the $6M seed at ~$45M; strong distribution moat and repeat team.", "The deck leads with self-serve / PLG, but the revenue breakdown shows the **top two customers are ~40% of ARR**. That concentration isn't in the pitch — diligence renewal terms, churn exposure, and how much of the '$2.1M ARR' rides on two logos before IC.") },
 };
 
 const helicone = {
@@ -439,7 +445,7 @@ const reworkd = {
   memo: { status: "draft", md: icMemo("Reworkd", "agentic web-data extraction from the AgentGPT team (YC S23)", "$0.6M ARR (est.), early; AgentGPT had 180k+ stars", "Differentiation vs Firecrawl and a still-unfocused ICP", "Team-driven bet, conviction medium — gate on the competitive wedge.") },
 };
 
-function icMemo(name, what, traction, biggestRisk, rec) {
+function icMemo(name, what, traction, biggestRisk, rec, flag) {
   return `# IC Memo — ${name}
 
 ## Summary
@@ -464,7 +470,7 @@ Terms and cap table in the dossier's "round" section.
 See the scored fits/risks and dimension subscores. Conviction and return scenarios are in the dossier's "fit" block.
 
 ## Risks / diligence
-**Biggest risk:** ${biggestRisk}. Full red-flag list, key risks by category, and the diligence checklist are in the dossier's "diligence" plan.
+${flag ? `> ⚠️ **Concentration flag — caught by vc-research, not in the founder deck:** ${flag}\n\n` : ""}**Biggest risk:** ${biggestRisk}. Full red-flag list, key risks by category, and the diligence checklist are in the dossier's "diligence" plan.
 
 ## Recommendation
 ${rec}
@@ -481,24 +487,43 @@ async function main() {
     await sql.unsafe(`DELETE FROM ${t} WHERE tenant_id = $1`, [TENANT]);
   }
 
-  for (const c of STARTUPS) {
+  // Make the active thesis match the demo narrative (Thesis Studio screen):
+  // weights Team 40 / Market 30 / Product 30 + the must-haves / deal-breakers.
+  const [activeThesis] = await sql`SELECT id FROM vc__theses WHERE tenant_id = ${TENANT} AND is_active = true LIMIT 1`;
+  if (activeThesis) {
+    await sql`UPDATE vc__theses SET name = 'AI Infrastructure Thesis', config = ${sql.json(THESIS)}, updated_at = now() WHERE id = ${activeThesis.id}`;
+  } else {
+    await sql`INSERT INTO vc__theses (id, tenant_id, name, config, is_active, created_at, updated_at)
+              VALUES (${randomUUID()}, ${TENANT}, 'AI Infrastructure Thesis', ${sql.json(THESIS)}, true, now(), now())`;
+  }
+  console.log("▸ active thesis set to AI Infrastructure Thesis (40/30/30)");
+
+  for (let i = 0; i < STARTUPS.length; i++) {
+    const c = STARTUPS[i];
     const id = randomUUID();
+    const researchedAt = ago(i * 31 + 14);
+    const scoredAt = ago(i * 31 + 33);
+    const memoAt = ago(i * 31 + 52);
+    c.dossier.enrichedAt = researchedAt.toISOString();
+    if (c.dossier.fit) c.dossier.fit.scoredAt = scoredAt.toISOString();
     await sql`
       INSERT INTO vc__startups (id, tenant_id, name, domain, one_liner, source_channel, stage, fit_score, dossier, thesis_snapshot, created_at, updated_at)
       VALUES (${id}, ${TENANT}, ${c.name}, ${c.domain}, ${c.oneLiner}, ${c.source}, ${c.stage}, ${c.fitScore},
-              ${sql.json(c.dossier)}, ${sql.json(THESIS)}, now(), now())
+              ${sql.json(c.dossier)}, ${sql.json(THESIS)}, ${researchedAt}, ${scoredAt})
     `;
     if (c.memo) {
       await sql`
         INSERT INTO vc__memos (id, tenant_id, startup_id, draft_md, cited_sources, status, created_at, updated_at)
-        VALUES (${randomUUID()}, ${TENANT}, ${id}, ${c.memo.md}, ${sql.json([{ label: "Living dossier", ref: "dossier" }])}, ${c.memo.status}, now(), now())
+        VALUES (${randomUUID()}, ${TENANT}, ${id}, ${c.memo.md}, ${sql.json([{ label: "Living dossier", ref: "dossier" }])}, ${c.memo.status}, ${memoAt}, ${memoAt})
       `;
     }
+    let j = 0;
     for (const s of c.portfolioSignals ?? []) {
       await sql`
         INSERT INTO vc__portfolio_signals (id, tenant_id, startup_id, signal_type, payload, severity, created_at)
-        VALUES (${randomUUID()}, ${TENANT}, ${id}, ${s.type}, ${sql.json(s.payload)}, ${s.severity}, now())
+        VALUES (${randomUUID()}, ${TENANT}, ${id}, ${s.type}, ${sql.json(s.payload)}, ${s.severity}, ${ago(i * 31 + 60 + j * 9)})
       `;
+      j++;
     }
     console.log(`  ✓ ${c.name} — ${c.stage} · fit ${c.fitScore} · memo ${c.memo?.status}${c.portfolioSignals ? ` · ${c.portfolioSignals.length} signals` : ""}`);
   }

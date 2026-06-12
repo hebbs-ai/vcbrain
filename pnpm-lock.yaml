@@ -24,8 +24,8 @@ importers:
         specifier: ^0.3.1
         version: 0.3.1(kysely@0.29.2)(pg@8.21.0)
       '@boringos/connector-google':
-        specifier: ^0.2.12
-        version: 0.2.12(@boringos/drive@0.1.10(kysely@0.29.2)(pg@8.21.0))(@boringos/memory@0.1.9)
+        specifier: ^0.2.13
+        version: 0.2.13(@boringos/drive@0.1.10(kysely@0.29.2)(pg@8.21.0))(@boringos/memory@0.1.9)
       '@boringos/core':
         specifier: ^0.4.0
         version: 0.4.1(drizzle-orm@0.45.2(kysely@0.29.2)(pg@8.21.0)(postgres@3.4.9))(kysely@0.29.2)(pg@8.21.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(vitest@3.2.6(@types/debug@4.1.13)(@types/node@22.19.19)(jiti@2.7.0)(lightningcss@1.32.0)(tsx@4.22.4))(zod@4.4.3)
@@ -286,8 +286,8 @@ packages:
   '@boringos/connector-google@0.2.11':
     resolution: {integrity: sha512-G2Ay1CsiP9OM3XWmAUp30nyZDr5vSP/2wQVLkurTen4UwR5ElU6rDHPecsx8PYxcPJ5x022EIyybO4BsX4bq1Q==}
 
-  '@boringos/connector-google@0.2.12':
-    resolution: {integrity: sha512-n3c5JiO6jEbmKfgYjzC2kR9zsV/T5mq+NkKiBmIQ3Oh9+vHUCrJzqT51X9WD54FIsiyOQOxoDPZlrTPrD3bYHA==}
+  '@boringos/connector-google@0.2.13':
+    resolution: {integrity: sha512-fNpobRcApIQ+0BbqEXfgXmjfPddJWCYn5Ai0GpcYvuKM6CvzQQPT99JdDaKXvkic+1HK2W3aSbnJFq0MttVxTQ==}
 
   '@boringos/connector-slack@0.2.11':
     resolution: {integrity: sha512-RcR9MeasL+1oqmZKQNU6zu2ZyTC3uKIgwvhAgPQKhZWTLX0SjaBmP4J9rfBG+qXXf5JjlfzVS+0zLfkNc4EmAg==}
@@ -3033,7 +3033,7 @@ snapshots:
       - bare-buffer
       - react-native-b4a
 
-  '@boringos/connector-google@0.2.12(@boringos/drive@0.1.10(kysely@0.29.2)(pg@8.21.0))(@boringos/memory@0.1.9)':
+  '@boringos/connector-google@0.2.13(@boringos/drive@0.1.10(kysely@0.29.2)(pg@8.21.0))(@boringos/memory@0.1.9)':
     dependencies:
       '@boringos/module-sdk': 1.0.0(@boringos/drive@0.1.10(kysely@0.29.2)(pg@8.21.0))(@boringos/memory@0.1.9)
       '@boringos/shared': 1.0.0

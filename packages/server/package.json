@@ -1,6 +1,6 @@
 {
   "name": "@boringos-vcbrain/server",
-  "version": "0.8.2",
+  "version": "0.9.0",
   "private": true,
   "type": "module",
   "license": "MIT",
@@ -17,7 +17,7 @@
   "dependencies": {
     "@boringos/agent": "^0.3.1",
     "@boringos/module-sdk": "^0.13.0",
-    "@boringos/connector-google": "^0.2.12",
+    "@boringos/connector-google": "^0.2.13",
     "@boringos/core": "^0.4.0",
     "@boringos/db": "^0.2.0",
     "@boringos/shared": "^0.1.8",

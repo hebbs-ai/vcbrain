@@ -14,7 +14,7 @@ import { emitVc, type VcDeps } from "./deps.js";
 import { upsertStartup } from "./startups.js";
 import { resolveCompanyDomain, domainFromEmail } from "../util/domain.js";
 import { parseSender, companyNameFromDomain, classifyFile, sanitizeFilename } from "../util/email.js";
-import { resolveGmail, listAttachments, fetchAttachmentBytes } from "../google-client.js";
+import { resolveGmail } from "../google-client.js";
 
 interface InboxRow {
   id: string;
@@ -58,9 +58,9 @@ export async function ingestFiles(
     const gmail = await resolveGmail(deps);
     if (!gmail) return { ingested: 0, skipped: "no_gmail", files: [] };
     const message = await gmail.client.getMessage(input.messageId);
-    const metas = listAttachments(message);
+    const metas = gmail.client.listAttachments(message);
     for (const m of metas) {
-      const bytes = await fetchAttachmentBytes(gmail.getToken, input.messageId, m.attachmentId);
+      const bytes = await gmail.client.getAttachment(input.messageId, m.attachmentId);
       items.push({ filename: m.filename, mimeType: m.mimeType, bytes });
     }
   } else {

@@ -1,6 +1,6 @@
 {
   "id": "vcbrain",
-  "version": "0.8.2",
+  "version": "0.9.0",
   "entry": "./index.mjs",
   "ui": {
     "entry": "./ui/index.mjs",
